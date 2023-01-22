@@ -1,0 +1,73 @@
+<project name="RobotArm" threads="1" pubsub="auto" heartbeat-interval="1">
+  <metadata>
+    <meta id="layout">{"contQuery":{"Copy_Scores":{"x":-8.351655813953471,"y":-282.09490900779554},"ModelReader":{"x":172.16666666666669,"y":-673.7777777777778},"Score":{"x":-8.944444444444457,"y":-456},"Source_Astore":{"x":171.21428571428578,"y":-848.8571428571429},"Source_Img":{"x":-221,"y":-684.5}}}</meta>
+  </metadata>
+  <contqueries>
+    <contquery name="contQuery">
+      <windows>
+        <window-source pubsub="true" insert-only="true" index="pi_EMPTY" output-insert-only="true" name="Source_Img">
+          <schema>
+            <fields>
+              <field name="Id" type="string" key="true"/>
+              <field name="_image_" type="blob"/>
+            </fields>
+          </schema>
+        </window-source>
+        <window-score name="Score" pubsub="true">
+          <schema>
+            <fields>
+              <field name="Id" type="string" key="true"/>
+              <field name="P__label_Type3" type="double"/>
+              <field name="P__label_Type4" type="double"/>
+              <field name="I__label_" type="string"/>
+              <field name="_image_" type="blob"/>
+            </fields>
+          </schema>
+          <models>
+            <offline type="astore" reference="/opt/sas/projects/robot_arm/defect_detection.astore"/>
+          </models>
+        </window-score>
+        <window-model-reader name="ModelReader" pubsub="true"/>
+        <window-source pubsub="true" name="Source_Astore">
+          <schema>
+            <fields>
+              <field name="req_id" type="int64" key="true"/>
+              <field name="req_key" type="string"/>
+              <field name="req_val" type="string"/>
+            </fields>
+          </schema>
+          <connectors>
+            <connector class="fs" name="astore_csv">
+              <properties>
+                <property name="type"><![CDATA[pub]]></property>
+                <property name="fsname"><![CDATA[/opt/sas/projects/robot_arm/model_req.csv]]></property>
+                <property name="fstype"><![CDATA[csv]]></property>
+              </properties>
+            </connector>
+          </connectors>
+        </window-source>
+        <window-compute pubsub="true" name="Copy_Scores">
+          <schema>
+            <fields>
+              <field name="Id" type="string" key="true"/>
+              <field name="P__label_Type3" type="double"/>
+              <field name="P__label_Type4" type="double"/>
+              <field name="I__label_" type="string"/>
+            </fields>
+          </schema>
+          <output>
+            <field-expr><![CDATA[P__label_Type3]]></field-expr>
+            <field-expr><![CDATA[P__label_Type4]]></field-expr>
+            <field-expr><![CDATA[I__label_]]></field-expr>
+          </output>
+        </window-compute>
+      </windows>
+      <edges>
+        <edge source="Source_Img" target="Score" role="data"/>
+        <edge source="ModelReader" target="Score" role="model"/>
+        <edge source="Source_Astore" target="ModelReader" role="request"/>
+        <edge source="Score" target="Copy_Scores"/>
+      </edges>
+    </contquery>
+  </contqueries>
+</project>
