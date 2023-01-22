@@ -36,7 +36,7 @@ This project assumes that you have the following hardware and software:
 2. Python 2.7 with the following packages installed (On Raspberry pi):
 -	Serial (pip install serial)
 -	websocket-client (pip install websocket-client)
--	 (opencv2)[https://tutorials-raspberrypi.com/installing-opencv-on-the-raspberry-pi/]
+-	[opencv2](https://tutorials-raspberrypi.com/installing-opencv-on-the-raspberry-pi/)
 -	picamera (pip install picamera)
 -	grovepi (pip install grovepi)
 
