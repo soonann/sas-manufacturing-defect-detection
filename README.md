@@ -10,7 +10,7 @@ The Raspberry PI acts as a controller, initiating the capture of an image for th
 
 # Demo
 
-[Click here to watch the Demo](https://cloud.potatovault.com/s/sas-robot-arm-demo)
+[Demo Link](https://cloud.potatovault.com/s/sas-robot-arm-demo)
 
 # Requirements/Dependencies
 
