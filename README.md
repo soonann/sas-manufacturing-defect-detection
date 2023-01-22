@@ -1,6 +1,8 @@
 # Introduction
 
-The purpose of this demo is to showcase the capabilities of ESP with Edge Analytics, enabling users to deploy analytical models on the edge and sending back only the important data. This demo integrates multiple IoT devices, show casing a fully integrated mock up system of a manufacturing quality control use case. In this mock up, IoT devices such as a Robot Arm controlled by an Arduino Board and a Raspberry PI are integrated.
+The purpose of this demo is to showcase the capabilities of ESP with Edge Analytics, enabling users to deploy analytical models on the edge and sending back only the important data. 
+
+This demo integrates multiple IoT devices, show casing a fully integrated mock up system of a manufacturing quality control use case. In this mock up, IoT devices such as a Robot Arm controlled by an Arduino Board and a Raspberry PI are integrated.
 
 ![](./images/setup.jpg)
 
