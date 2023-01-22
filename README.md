@@ -21,24 +21,24 @@ This project assumes that you have the following hardware and software:
 ## Hardware:
 
 1. A Raspberry Pi with:
--	1x Pi Camera
--	1x Grove LCD
--	1x Grove Button
+- 1x Pi Camera
+- 1x Grove LCD
+- 1x Grove Button
 
 2. An Arduino with:
--	1x Braccio Robotic Arm
--	1x Arduino Cable
+- 1x Braccio Robotic Arm
+- 1x Arduino Cable
 	 
 ## Software:
 
 1. Arduino IDE (On Raspberry pi)
 
 2. Python 2.7 with the following packages installed (On Raspberry pi):
--	Serial (pip install serial)
--	websocket-client (pip install websocket-client)
--	[opencv2](https://tutorials-raspberrypi.com/installing-opencv-on-the-raspberry-pi/)
--	picamera (pip install picamera)
--	grovepi (pip install grovepi)
+- Serial (pip install serial)
+- websocket-client (pip install websocket-client)
+- [opencv2](https://tutorials-raspberrypi.com/installing-opencv-on-the-raspberry-pi/)
+- picamera (pip install picamera)
+- grovepi (pip install grovepi)
 
 3. SAS ESP 5.1  
 
